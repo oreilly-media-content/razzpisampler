@@ -1,0 +1,36 @@
+{
+  "files": [
+    "Connecting_a_Push_Switch.html",
+    "Connecting_an_LED.html",
+    "Controlling_Servo_Motors.html",
+    "Finding_your_way_around_the_GPIO_connector.html",
+    "Programming_an_Arduino_from_Raspberry_pi.html",
+    "Raspberry_Pi_Radio_Transmitter.html",
+    "Using_Resistive_Sensors.html",
+    "Using_a_4-Digit_LED_Display.html",
+    "Using_a_RaspiRobot_Board_to_Drive_a_Bi-Polar_Stepper_Motor.html",
+    "Using_lots_of_LEDs.html"
+  ],
+  "formats": {
+    "pdf": {
+      "version": false,
+      "index": false,
+      "toc": false
+    },
+    "epub": {
+      "index": false,
+      "toc": false,
+      "epubcheck": false
+    },
+    "mobi": {
+      "index": false,
+      "toc": false
+    },
+    "html": {
+      "index": false,
+      "toc": false
+    }
+  },
+  "theme": false,
+  "title": "razzpisampler"
+}

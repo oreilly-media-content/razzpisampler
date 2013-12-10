@@ -1,0 +1,53 @@
+<section id="SEC12.12" data-type="sect1"><h1>Using Resistive Sensors</h1><div class="video_note" data-type="note"><p>Be sure to check out the accompanying video for this recipe at <a href="http://razzpisampler.oreilly.com">http://razzpisampler.oreilly.com</a>.</p></div><section id="_problem_186" data-type="sect2"><h2>Problem</h2><p>You want to connect a variable resistor to a Raspberry Pi and measure the position of its rotation.<a data-type="indexterm" data-primary="resistors" data-secondary="variable resistors"/></p></section><section id="_solution_186" data-type="sect2"><h2>Solution</h2><p>You can measure resistance on a Raspberry Pi using nothing more than a capacitor, a couple of resistors, and two GPIO pins. In this case, you will be able to read the position of the knob on a small variable resistor (trimpot).</p><p>To make this recipe, you will need:</p><ul><li><p>
+Breadboard and jumper wires (see <a href="#SECA.1" data-type="xref"/>)
+</p></li><li><p>
+10kΩ trimpot (see <a href="#SECA.2" data-type="xref"/>)
+</p></li><li><p>
+Two 1kΩ resistors (see <a href="#SECA.2" data-type="xref"/>)
+</p></li><li><p>
+220 nF capacitor (see <a href="#SECA.2" data-type="xref"/>)
+</p></li></ul><p><a href="#FIG12.12a" data-type="xref"/> shows the arrangement of components on the breadboard.</p><figure id="FIG12.12a" float="none"><figcaption>Measuring resistance on a Raspberry Pi</figcaption><img src="images/rpck_1201.png"/></figure><p>Open an editor (nano or IDLE) and paste in the following code. As with all the program examples in this book, you can also download the program from the Code section of the <a href="http://www.raspberrypicookbook.com"><em>Raspberry Pi Cookbook</em> website</a>, where it is called <em>pot_step.py</em>.</p><pre data-type="programlisting" data-code-language="python">import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+a_pin = 18
+b_pin = 23
+
+def discharge():
+    GPIO.setup(a_pin, GPIO.IN)
+    GPIO.setup(b_pin, GPIO.OUT)
+    GPIO.output(b_pin, False)
+    time.sleep(0.005)
+
+def charge_time():
+    GPIO.setup(b_pin, GPIO.IN)
+    GPIO.setup(a_pin, GPIO.OUT)
+    count = 0
+    GPIO.output(a_pin, True)
+    while not GPIO.input(b_pin):
+        count = count + 1
+    return count
+
+def analog_read():
+    discharge()
+    return charge_time()
+
+while True:
+    print(analog_read())
+    time.sleep(1)</pre><p>When you run the program, you should see some output like this:</p><pre data-type="programlisting">$ sudo python pot_step.py
+10
+12
+10
+10
+16
+23
+43
+53
+67
+72
+86
+105
+123
+143
+170</pre><p>The reading will vary between about 10 and about 170 as you rotate the knob of the trimpot.</p></section><section id="_discussion_184" data-type="sect2"><h2>Discussion</h2><p>To explain how this program works, I first need to explain how the <em>step response</em> technique can be used to measure the resistance of the variable resistor.<a data-type="indexterm" data-primary="step response technique"/></p><p><a href="#FIG12.12b" data-type="xref"/> shows the schematic diagram for the recipe.</p><figure id="FIG12.12b" float="true"><figcaption>Measuring resistance using step response</figcaption><img src="images/rpck_1202.png"/></figure><p>This way of doing things is called <em>step response</em> because it works by seeing how the circuit responds from the <em>step</em> change when an output is switched from low to high.</p><p>You can think of a capacitor as a tank of electricity, and as it fills with charge, the voltage across it increases. You can’t measure that voltage directly, because the Raspberry Pi doesn’t have an ADC converter. However, you can time how long it takes for the capacitor to fill with charge to the extent that it gets above the 1.65V or so that constitutes a high digital input. The speed at which the capacitor fills with charge depends on the value of the variable resistor (Rt). The lower the resistance, the faster the capacitor fills with charge and the voltage rises.</p><p>To be able to get a good reading, you must also be able to empty the capacitor each time before you take a reading. In <a href="#FIG12.12b" data-type="xref"/>, connection A is used to charge the capacitor through Rc and Rt, and connection B is used to discharge (empty) the capacitor through Rd. The resistors Rc and Rd are used to make sure that there is no way too much current can flow as the capacitor is charged and discharged.</p><p>The steps involved in taking a reading are first to discharge the capacitor through Rd and then to let it charge through Rc and Rt.</p><p>To discharge it, connection A (GPIO 18) is set to be an input, effectively disconnecting Rc and Rt from the circuit. Connection B (GPIO 23) is then set to be an output and low. This is held there for 5 milliseconds to empty the capacitor.</p><p>Now that the capacitor is empty, you can start to allow charge to flow into it by setting connection B to be an input (effectively disconnecting it) and then enabling connection A to be a high output at 3.3V. Capacitor C will now begin to charge through Rc and Rt. The <code>while</code> loop will then simply count as fast as possible until the voltage at connection B switches from being low to high at about 1.65V.</p><p>At that point, the counting stops and the count value is returned.</p><p><a href="#FIG12.12c" data-type="xref"/> shows how a resistor and capacitor in this kind of arrangement charge and discharge as the voltage is toggled between high and low.</p><figure id="FIG12.12c" float="true"><figcaption>Charging and discharging a capacitor</figcaption><img src="images/rpck_1203.png"/></figure><p>You can see that the voltage at the capacitor increases rapidly at first but then tails off as the capacitor becomes full. Fortunately, you are interested in the area of the curve up until the capacitor reaches about 1.65V, which is a fairly straight line, meaning that the time taken for the voltage across the capacitor to rise to this point is roughly proportional to the resistance of Rt and hence the position of the knob.<a data-type="indexterm" data-primary="capacitors, charging/discharging"/></p><p>This approach is not hugely accurate, but it is very low cost and easy to use.</p></section><section id="_see_also_186" data-type="sect2"><h2>See Also</h2><p>Using a step response works well with all kinds of resistive sensors for light (<a href="#SEC12.13" data-type="xref"/>) and even gas detection (<a href="#SEC12.8" data-type="xref"/>).</p><p>For more accurate measurements of the trimpot position, see <a href="#SEC12.1" data-type="xref"/>, where the pot is used with an ADC converter.<a data-type="indexterm" data-startref="ix_Sresist"/><a data-type="indexterm" data-startref="ix_resist"/></p></section></section>

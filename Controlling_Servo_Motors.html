@@ -1,0 +1,36 @@
+<section id="SEC7.12" data-type="sect1"><h1>Controlling Servo Motors</h1><div class="video_note" data-type="note"><p>Be sure to check out the accompanying video for this recipe at <a href="http://razzpisampler.oreilly.com">http://razzpisampler.oreilly.com</a>.</p></div><section id="_problem_165" data-type="sect2"><h2>Problem</h2><p>You want to use a Raspberry Pi to control the position of a servo motor.<a data-type="indexterm" id="ix_Mservo" data-primary="motors" data-secondary="servo motors"/><a data-type="indexterm" data-primary="servo motors" data-secondary="controlling"/></p></section><section id="_solution_165" data-type="sect2"><h2>Solution</h2><p>Use PWM to control the width of pulses to a servo motor to change its angle. Although this will work, the PWM generated is not completely stable, so there will be a little bit of jitter with the servo.</p><p>You should also power the servo from a separate 5V power supply because peaks in the load current are likely to crash or overload the Raspberry Pi.</p><p>To make this recipe, you will need:</p><ul><li><p>
+5V servo motor (see <a href="#SECA.7" data-type="xref"/>)
+</p></li><li><p>
+Breadboard and jumper wires (see <a href="#SECA.1" data-type="xref"/>)
+</p></li><li><p>
+1kΩ resistor (see <a href="#SECA.2" data-type="xref"/>)
+</p></li><li><p>
+5V 1A power supply or 4.8V battery pack (see <a href="#SECA.7" data-type="xref"/>)
+</p></li></ul><p>The breadboard layout for this is shown in <a href="#FIG7.15" data-type="xref"/>.</p><figure id="FIG7.15" float="none"><figcaption>Controlling a servo motor</figcaption><img src="images/rpck_1001.png"/></figure><p>The 1kΩ resistor is not essential, but it does protect the GPIO pin from unexpectedly high currents in the control signal, which could occur if a fault developed on the servo.</p><p>The leads of the servo may not be the same as the colors indicated in <a href="#FIG7.16" data-type="xref"/>. It is common for the 5V wire to be red, the ground brown, and the control lead orange.</p><p>You can, if you prefer, power the servo from a battery pack rather than a power supply. Using a four-cell AA battery holder with rechargeable batteries will provide around 4.8V and work well with a servo. Using four alkali AA cells to provide 6V will be fine for many servos, but check the datasheet of your servo to make sure it is OK with 6V.</p><p>The user interface for setting the angle of the servo is based on the <em>gui_slider.py</em> program intended for controlling the brightness of an LED (<a href="#SEC7.2" data-type="xref"/>). However, you can modify it so that the slider sets the angle, between 0 and 180 degrees (<a href="#FIG7.16" data-type="xref"/>).</p><figure id="FIG7.16" float="none"><figcaption>User interface for controlling a servo motor</figcaption><img src="images/rpck_1002.png"/></figure><p>Open an editor (nano or IDLE) and paste in the following code. As with all the program examples in this book, you can also download the program from the Code section of the <a href="http://www.raspberrypicookbook.com"><em>Raspberry Pi Cookbook</em> website</a>, where it is called <em>servo.py</em>.</p><p>Note that this program uses a graphical user interface, so you cannot run it from SSH.</p><p>You must run it from the windowing environment on the Pi itself or via remote control using VNC (<a href="#SEC2.8" data-type="xref"/>). You also need to run it as superuser, so run it with the command <code>sudo python servo.py</code>:</p><pre data-type="programlisting" data-code-language="python">from Tkinter import *
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.OUT)
+pwm = GPIO.PWM(18, 100)
+pwm.start(5)
+
+class App:
+
+    def __init__(self, master):
+        frame = Frame(master)
+        frame.pack()
+        scale = Scale(frame, from_=0, to=180,
+              orient=HORIZONTAL, command=self.update)
+        scale.grid(row=0)
+
+
+    def update(self, angle):
+        duty = float(angle) / 10.0 + 2.5
+        pwm.ChangeDutyCycle(duty)
+
+root = Tk()
+root.wm_title('Servo Control')
+app = App(root)
+root.geometry("200x50+0+0")
+root.mainloop()</pre></section><section id="_discussion_164" data-type="sect2"><h2>Discussion</h2><p>Servo motors are used in remote control vehicles and robotics. Most servo motors are not <em>continuous</em>; that is, they cannot rotate all the way around but rather just over an angle of about 180 degrees.</p><p>The position of the servo motor is set by the length of a pulse. The servo expects to receive a pulse at least every 20 milliseconds. If that pulse is high for 1 millisecond, the servo angle will be zero; if it is 1.5 milliseconds, it will be at its center position; and if it is 2 milliseconds, it will be at 180 degrees (<a href="#FIG7.17" data-type="xref"/>).</p><figure id="FIG7.17" float="none"><figcaption>Servo motors</figcaption><img src="images/rpck_1003.png"/></figure><p>The example program sets the PWM frequency to 100 Hz, which will send a pulse to the servo every 10 milliseconds. The angle is converted into a duty cycle between 0 and 100. This actually produces pulses shorter than the 1 millisecond expected minimum value and longer than 2 milliseconds maximum.</p></section><section id="_see_also_165" data-type="sect2"><h2>See Also</h2><p>If you have a lot of servos to control, or require greater stability and precision, then you can use a dedicated servo controller module, as described in <a href="#SEC7.13" data-type="xref"/>.</p><p>Adafruit has developed <a href="http://bit.ly/17FVspk">another method of servo control</a>.</p><p>For more information on using a breadboard and jumper wires with the Raspberry Pi, see <a href="#SEC6.6" data-type="xref"/>.</p></section></section>

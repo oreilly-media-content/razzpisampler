@@ -28,9 +28,9 @@
     },
     "html": {
       "index": false,
-      "toc": false
+      "toc": true
     }
   },
-  "theme": false,
+  "theme": "false",
   "title": "razzpisampler"
 }

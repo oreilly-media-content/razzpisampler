@@ -28,7 +28,7 @@
     },
     "html": {
       "index": false,
-      "toc": true
+      "toc": false
     }
   },
   "theme": "false",

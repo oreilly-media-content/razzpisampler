@@ -32,6 +32,6 @@
       "consolidated": false
     }
   },
-  "theme": "",
+  "theme": "oreillymedia/atlas_trade_theme",
   "title": "razzpisampler"
 }

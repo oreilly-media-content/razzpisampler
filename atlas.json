@@ -1,6 +1,15 @@
 {
   "files": [
-    "Using_lots_of_LEDs.html"
+    "Raspberry_Pi_Radio_Transmitter.html",
+    "Finding_your_way_around_the_GPIO_connector.html",
+    "Connecting_an_LED.html",
+    "Using_lots_of_LEDs.html",
+    "Controlling_Servo_Motors.html",
+    "Using_a_RaspiRobot_Board_to_Drive_a_Bi-Polar_Stepper_Motor.html",
+    "Connecting_a_Push_Switch.html",
+    "Using_Resistive_Sensors.html",
+    "Using_a_4-Digit_LED_Display.html",
+    "Programming_an_Arduino_from_Raspberry_pi.html"
   ],
   "formats": {
     "pdf": {

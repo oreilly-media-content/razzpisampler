@@ -110,6 +110,8 @@ img.toc {
   width: 100px;
   border: 1px solid #d8d8d8;
   border-radius: 10px;
+    -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
 }
 
 .bubble {
@@ -117,6 +119,8 @@ img.toc {
   height: 100px;
   width: 100px;
   border-radius: 50px;
+    -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
   border: 1px solid #d8d8d8;
   overflow: hidden;
   text-align: center;
@@ -144,6 +148,14 @@ p.supplemental {
   width: 220px;
 }
 
+div.booklink {
+  text-align: center;
+}
+
+div.booklink img {
+  max-height: 120px;
+}
+
 figure {
   text-align: center;
 }
@@ -165,6 +177,8 @@ pre {
 div[data-type="note"], div.navigation li {
   background-color: #F0F8FF;
   border-radius: 5px;
+    -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
   border: 1px solid #63D1F4;
   padding: 1px 10px;
   margin: 30px 0;

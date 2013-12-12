@@ -10,6 +10,10 @@ img {
   max-width: 100%;
 }
 
+iframe {
+  max-width: 100%;
+}
+
 .blue {
   background-color: #00adef;
   padding: 3px;
@@ -48,6 +52,8 @@ nav[data-type="toc"] ol li ol {
 
 div.navigation {
   margin-top: 30px;
+  overflow: auto;
+  width: 100%;
 }
 
 div.navigation ul {
@@ -184,10 +190,11 @@ div[data-type="note"], div.navigation li {
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  vv
+  
 }
 
 @media (max-width: 767px) {
+
   .titlepage {
     background-size: 100% auto;
     width: 100%;

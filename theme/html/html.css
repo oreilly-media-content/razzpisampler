@@ -6,6 +6,10 @@ body {
   counter-reset: figure;
 }
 
+img {
+  max-width: 100%;
+}
+
 .blue {
   background-color: #00adef;
   padding: 3px;
@@ -78,17 +82,12 @@ div.navigation ul li.next {
   border-bottom: 2px solid #00adef;
 }
 
-.splash div {
-}
-
-.titlepage {
-  background-image: url("titlepage.svg"); 
-  background-repeat: no-repeat;
-  background-size: 600px auto;
+.booktitle img {
   width: 600px;
-  height: 200px;
+  height: auto;
   display: block;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .lede {
@@ -182,4 +181,16 @@ div[data-type="note"], div.navigation li {
   border: 1px solid #63D1F4;
   padding: 1px 10px;
   margin: 30px 0;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  vv
+}
+
+@media (max-width: 767px) {
+  .titlepage {
+    background-size: 100% auto;
+    width: 100%;
+    height: 100px;
+  }
 }

@@ -1,0 +1,67 @@
+{{ doctype }}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    {{ header }}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body data-type="book">
+
+  <div class="navbar">
+    <div class="container">
+      <a class="brand" href="http://oreilly.com/" target="_blank"><span class="logo logo-white"></span></a>
+      <a class="title" href="ch01.html"><span class="logo logo-white-titleonly"></span></a>
+      <ul class="nav pull-right">
+        <li><a href="{{prev}}" class="prev" title="Previous Chapter">&lt;</a></li>
+        <li><a href="{{next}}" class="next" title="Next Chapter">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div class="container" id="main">
+<div class="row">
+<div class="span8">
+
+  {{ content }}
+
+  <div class="navigation">
+      <ul>
+        <li>{{ next_link }}</li>
+        <li>{{ prev_link }}</li>
+      </ul>
+    </div>
+
+</div>
+</div>
+</div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="span5">
+          <span class="logo"></span>
+          <p>&copy; 2013, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span3 offset1">
+          <ul>
+            <li>About O'Reilly Atlas</li>
+            <li><a href="/docs/why-atlas">Why Atlas?</a></li>
+            <li><a href="/docs/plans-and-pricing">Plans and Pricing</a></li>
+          </ul>
+        </div>
+        <div class="span3">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/docs/terms-of-service">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

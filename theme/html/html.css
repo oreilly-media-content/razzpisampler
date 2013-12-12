@@ -1,0 +1,99 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+body {
+  counter-reset: figure;
+}
+
+.blue {
+  background-color: #00adef;
+  padding: 3px;
+}
+
+.navbar {
+  background-color: #00adef;
+}
+
+.navbar .brand {
+  padding-right: 10px; 
+}
+
+.navbar .title {
+  float: left;
+  display: block;
+  padding: 10px 20px 10px 0px; 
+}
+
+.navbar .nav > li:nth-child(even) > a,
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  background-color: #00adef; }
+
+.navbar .nav > li {
+  border-left: 1px solid #63D1F4; 
+}
+
+.navbar .nav > li:last-child {
+  border-right: 1px solid #63D1F4; 
+}
+
+.booktitle {
+  background-image: url("bird.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.titlepage {
+  background-image: url("titlepage.svg"); 
+  background-repeat: no-repeat;
+  background-size: 600px auto;
+  width: 600px;
+  height: 200px;
+  display: block;
+  margin-top: 30px;
+}
+
+.lede {
+  background-color: #00adef;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.logo.logo-white {
+  background-image: url("logo-white.svg"); 
+  height: 16px;
+  width: 85px;
+}
+
+.logo.logo-white-titleonly {
+  background-image: url("logo-white-titleonly.svg"); 
+  height: 16px;
+  width: 220px;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption:before {
+  content: "Figure " counter(figure) ": ";
+  counter-increment: figure;
+}
+
+figcaption {
+  font-style: italic;
+  margin: 10px 0 10px 0;
+}
+
+pre {
+  margin-left: 30px;
+}
+
+div[data-type="note"] {
+  background-color: #F0F8FF;
+  border-radius: 5px;
+  border: 1px solid #63D1F4;
+  padding: 1px 10px;
+  margin: 30px 0;
+}

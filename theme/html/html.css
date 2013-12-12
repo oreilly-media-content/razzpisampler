@@ -38,6 +38,10 @@ body {
   border-right: 1px solid #63D1F4; 
 }
 
+nav[data-type="toc"] ol li ol {
+  display: none;
+}
+
 .booktitle {
   background-image: url("bird.png");
   background-repeat: no-repeat;

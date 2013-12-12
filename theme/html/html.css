@@ -42,10 +42,43 @@ nav[data-type="toc"] ol li ol {
   display: none;
 }
 
+div.navigation {
+  margin-top: 30px;
+}
+
+div.navigation ul {
+  padding-left: 0;
+}
+
+div.navigation ul li {
+  display: inline-block;
+  padding: 7px;
+}
+
+div.navigation ul li.prev:before {
+  content: "< ";
+}
+
+div.navigation ul li.next:after {
+  content: " >";
+}
+
+div.navigation ul li.prev {
+  float: left;
+}
+
+div.navigation ul li.next {
+  float: right;
+}
+
 .booktitle {
   background-image: url("bird.png");
   background-repeat: no-repeat;
   background-position: right top;
+  border-bottom: 2px solid #00adef;
+}
+
+.splash div {
 }
 
 .titlepage {
@@ -59,9 +92,44 @@ nav[data-type="toc"] ol li ol {
 }
 
 .lede {
-  background-color: #00adef;
-  color: #fff;
   font-size: 1.1em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.lede p {
+  margin-bottom: 0;
+}
+
+.bluetop {
+  border-top: 2px solid #00adef;
+}
+
+img.toc {
+  width: 100px;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+}
+
+.bubble {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 1px solid #d8d8d8;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bubble img {
+  width: 100px;
+  vertical-align: middle;
+}
+
+p.supplemental {
+  font-size: 0.8em;
+  margin-top: 0;
 }
 
 .logo.logo-white {
@@ -94,7 +162,7 @@ pre {
   margin-left: 30px;
 }
 
-div[data-type="note"] {
+div[data-type="note"], div.navigation li {
   background-color: #F0F8FF;
   border-radius: 5px;
   border: 1px solid #63D1F4;

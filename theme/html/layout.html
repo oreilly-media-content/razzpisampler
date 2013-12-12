@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>{{ title }}</title>
-    {{ header }}
     <link rel="stylesheet" type="text/css" href="theme/html/atlas_assets.css"/>
+    {{ header }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body data-type="book">
@@ -14,8 +14,8 @@
       <a class="brand" href="http://oreilly.com/" target="_blank"><span class="logo logo-white"></span></a>
       <a class="title" href="ch01.html"><span class="logo logo-white-titleonly"></span></a>
       <ul class="nav pull-right">
-        <li><a href="{{prev}}" class="prev" title="Previous Chapter">&lt;</a></li>
-        <li><a href="{{next}}" class="next" title="Next Chapter">&gt;</a></li>
+        <li>{{ prev_link }}</li>
+        <li>{{ next_link }}</li>
       </ul>
     </div>
   </div>

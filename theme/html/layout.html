@@ -1,39 +1,28 @@
-{{ doctype }}
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ title }}</title>
-    <link rel="stylesheet" type="text/css" href="theme/html/atlas_assets.css"/>
-    {{ header }}
-    <link rel="stylesheet" type="text/css" href="theme/html/syntax.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body data-type="book">
-
-  <div class="navbar">
-    <div class="container">
-      <a class="brand" href="http://oreilly.com/" target="_blank"><span class="logo logo-white"></span></a>
-      <a class="title" href="index.html"><span class="logo logo-white-titleonly"></span></a>
-      <ul class="nav pull-right">
-        <li>{{ prev_link }}</li>
-        <li>{{ next_link }}</li>
-      </ul>
-    </div>
-  </div>
+<p>{{ doctype }}</p>
+<meta charset="utf-8" />
+<title></title>
+<link href="theme/html/atlas_assets.css" rel="stylesheet" type="text/css" />
+<p>{{ header }}</p>
+<link href="theme/html/syntax.css" rel="stylesheet" type="text/css" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<div class="navbar">
+<div class="container">
+<ul class="nav pull-right">
+	<li>{{ prev_link }}</li>
+	<li>{{ next_link }}</li>
+</ul>
+</div>
+</div>
 
 <div class="container" id="main">
 <div class="row">
-<div class="span8">
-
-  {{ content }}
-
-  <div class="navigation">
-      <ul>
-        <li class="prev">{{ prev_link }}</li>
-        <li class="next">{{ next_link }}</li>
-      </ul>
-  </div>
-
+<div class="span8">{{ content }}
+<div class="navigation">
+<ul>
+	<li class="prev">{{ prev_link }}</li>
+	<li class="next">{{ next_link }}</li>
+</ul>
+</div>
 </div>
 
 <div class="span3 offset1">
@@ -41,32 +30,50 @@
 {{ toc }}
 
 <div class="booklink">
-<p><img src="http://akamaicovers.oreilly.com/images/0636920029595/cat.gif" alt="Raspberry Pi Cookbook book cover" /><br />
-<a href="http://oreilly.com">Buy the book on oreilly.com.</a></p>
+<p><img alt="Raspberry Pi Cookbook book cover" src="http://akamaicovers.oreilly.com/images/0636920029595/cat.gif" /><br />
+<a data-original-title="" href="http://oreilly.com" title="">Buy the book on oreilly.com.</a></p>
 </div>
+
+
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://herokuapp.us7.list-manage2.com/subscribe/post?u=5fec48c7e90ffefc48144196d&amp;id=e20a10def3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<label for="mce-EMAIL">Sign up to receive updates about the Raspberry Pi Cookbook</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_5fec48c7e90ffefc48144196d_e20a10def3" value=""></div>
+	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
 
 </div>
 </div>
 </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="span5">
-          <p>&copy; 2013, O'Reilly Media, Inc.</p>
-          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
-        </div>
-        <div class="span3 offset1">
-          <ul>
-            <li>Legal</li>
-            <li><a href="/docs/terms-of-service">Terms of Service</a></li>
-            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
-          </ul>
-        </div>
+<footer>
+<div class="container">
+<div class="row">
+<div class="span5">
+<p>&copy; 2013, O'Reilly Media, Inc.</p>
 
-      </div>
-    </div>
-  </footer>
+<p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+</div>
 
-</body>
-</html>
+<div class="span3 offset1">
+<ul>
+	<li>Legal</li>
+	<li><a href="/docs/terms-of-service">Terms of Service</a></li>
+	<li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>

@@ -3,7 +3,6 @@
  }
 
 body {
-  counter-reset: figure;
 }
 
 img {
@@ -161,11 +160,6 @@ div.booklink img {
 
 figure {
   text-align: center;
-}
-
-figcaption:before {
-  content: "Figure " counter(figure) ": ";
-  counter-increment: figure;
 }
 
 figcaption {

@@ -13,7 +13,7 @@
   ],
   "formats": {
     "pdf": {
-      "version": false,
+      "version": "web",
       "index": false,
       "toc": false
     },
@@ -32,6 +32,6 @@
       "consolidated": false
     }
   },
-  "theme": "",
+  "theme": "oreillymedia/atlas_tech1c_theme",
   "title": "razzpisampler"
 }

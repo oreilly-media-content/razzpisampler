@@ -1,28 +1,39 @@
-<p>{{ doctype }}</p>
-<meta charset="utf-8" />
-<title></title>
-<link href="theme/html/atlas_assets.css" rel="stylesheet" type="text/css" />
-<p>{{ header }}</p>
-<link href="theme/html/syntax.css" rel="stylesheet" type="text/css" />
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<div class="navbar">
-<div class="container">
-<ul class="nav pull-right">
-	<li>{{ prev_link }}</li>
-	<li>{{ next_link }}</li>
-</ul>
-</div>
-</div>
+{{ doctype }}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="theme/html/atlas_assets.css"/>
+    {{ header }}
+    <link rel="stylesheet" type="text/css" href="theme/html/syntax.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body data-type="book">
+
+  <div class="navbar">
+    <div class="container">
+      <a class="brand" href="http://oreilly.com/" target="_blank"><span class="logo logo-white"></span></a>
+      <a class="title" href="index.html"><span class="logo logo-white-titleonly"></span></a>
+      <ul class="nav pull-right">
+        <li>{{ prev_link }}</li>
+        <li>{{ next_link }}</li>
+      </ul>
+    </div>
+  </div>
 
 <div class="container" id="main">
 <div class="row">
-<div class="span8">{{ content }}
-<div class="navigation">
-<ul>
-	<li class="prev">{{ prev_link }}</li>
-	<li class="next">{{ next_link }}</li>
-</ul>
-</div>
+<div class="span8">
+
+  {{ content }}
+
+  <div class="navigation">
+      <ul>
+        <li class="prev">{{ prev_link }}</li>
+        <li class="next">{{ next_link }}</li>
+      </ul>
+  </div>
+
 </div>
 
 <div class="span3 offset1">
@@ -30,31 +41,32 @@
 {{ toc }}
 
 <div class="booklink">
-<p><img alt="Raspberry Pi Cookbook book cover" src="http://akamaicovers.oreilly.com/images/0636920029595/cat.gif" /><br />
-<a data-original-title="" href="http://oreilly.com" title="">Buy the book on oreilly.com.</a></p>
+<p><img src="http://akamaicovers.oreilly.com/images/0636920029595/cat.gif" alt="Raspberry Pi Cookbook book cover" /><br />
+<a href="http://oreilly.com">Buy the book on oreilly.com.</a></p>
 </div>
 
-
 </div>
 </div>
 </div>
 
-<footer>
-<div class="container">
-<div class="row">
-<div class="span5">
-<p>&copy; 2013, O'Reilly Media, Inc.</p>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="span5">
+          <p>&copy; 2013, O'Reilly Media, Inc.</p>
+          <p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
+        </div>
+        <div class="span3 offset1">
+          <ul>
+            <li>Legal</li>
+            <li><a href="/docs/terms-of-service">Terms of Service</a></li>
+            <li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
+          </ul>
+        </div>
 
-<p class="small">All trademarks and registered trademarks appearing on oreilly.com are the property of their respective owners.</p>
-</div>
+      </div>
+    </div>
+  </footer>
 
-<div class="span3 offset1">
-<ul>
-	<li>Legal</li>
-	<li><a href="/docs/terms-of-service">Terms of Service</a></li>
-	<li><a href="http://oreilly.com/oreilly/privacy.csp">Privacy Policy</a></li>
-</ul>
-</div>
-</div>
-</div>
-</footer>
+</body>
+</html>

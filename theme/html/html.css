@@ -127,21 +127,11 @@ img.toc {
       -moz-border-radius: 10px;
 }
 
-.bubble {
-  display: inline-block;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-    -webkit-border-radius: 50px;
-      -moz-border-radius: 50px;
-  border: 1px solid #d8d8d8;
-  overflow: hidden;
-  text-align: center;
-}
-
-.bubble img {
-  width: 100px;
-  vertical-align: middle;
+.featured img {
+  height: 130px;
+  width: auto;
+  -webkit-box-shadow:0 0 2px 0 #808080;
+  box-shadow:0 0 2px 0 #808080;
 }
 
 p.supplemental {

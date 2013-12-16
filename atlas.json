@@ -30,7 +30,9 @@
       "index": false,
       "toc": true,
       "consolidated": false,
-      "javascripts": ["theme/html/analytics.js"]
+      "javascripts": [
+        "theme/html/analytics.js"
+      ]
     }
   },
   "theme": "",
